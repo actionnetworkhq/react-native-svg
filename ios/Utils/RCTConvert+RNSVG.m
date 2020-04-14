@@ -57,6 +57,10 @@ RCT_ENUM_CONVERTER(RNSVGUnits, (@{
         }
         return [[RNSVGSolidColorBrush alloc] initWithArray:output];
     }
+    if (![json isKindOfClass:[NSArray class]]) {
+        return nil;
+    }
+
     NSArray *arr = [self NSArray:json];
     NSUInteger type = [self NSUInteger:arr.firstObject];
 
